@@ -1,0 +1,61 @@
+<div class="calculator-container">
+
+  <!-- Display -->
+  <div class="display">
+    <div class="expression">{{ engine.expression }}</div>
+    <div class="result">{{ engine.display }}</div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="buttons">
+
+
+    <button class="clear" (click)="engine.clear()">C</button>
+    <!-- Trigonometry -->
+    <button (click)="engine.sin()">sin</button>
+    <button (click)="engine.cos()">cos</button>
+    <button (click)="engine.tan()">tan</button>
+
+    <!-- Clear / Backspace -->
+    <button (click)="engine.backspace()">←</button>
+    <button (click)="engine.percent()">%</button>
+    <button (click)="engine.setOperator('/')">÷</button>
+
+    <!-- Scientific -->
+    <button (click)="engine.sqrt()">√</button>
+    <button (click)="engine.square()">x²</button>
+    <button (click)="engine.inverse()">1/x</button>
+    <button (click)="engine.setOperator('*')">×</button>
+
+    <!-- Numbers -->
+    <button (click)="engine.input('7')">7</button>
+    <button (click)="engine.input('8')">8</button>
+    <button (click)="engine.input('9')">9</button>
+    <button (click)="engine.setOperator('-')">−</button>
+
+    <button (click)="engine.input('4')">4</button>
+    <button (click)="engine.input('5')">5</button>
+    <button (click)="engine.input('6')">6</button>
+    <button (click)="engine.setOperator('+')">+</button>
+
+    <button (click)="engine.input('1')">1</button>
+    <button (click)="engine.input('2')">2</button>
+    <button (click)="engine.input('3')">3</button>
+    <button class="equals" (click)="engine.calculate()">=</button>
+
+    <button class="zero" (click)="engine.input('0')">0</button>
+    <button (click)="engine.input('.')">.</button>
+
+  </div>
+</div>
+<!-- History Panel -->
+<div class="history-panel">
+  <h4>History</h4>
+  <div class="history-list">
+    @for (item of engine.history; track item) {
+    <div>
+      {{ item }}
+    </div>
+    }
+  </div>
+</div>
